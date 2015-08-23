@@ -12,10 +12,10 @@ FortiGate 防火墙是 Fortinet, Inc 公司的产品，
     
     厂商列表：[all vendor](http://www.oidview.com/mibs/detail.html)
     
-    以huawei为例，我们可以在里边里面找打 Fortinet, Inc，
+    以fortinet为例，我们可以在里边里面找打 Fortinet, Inc，
     进入该页面或可以看到 fortinet的 mib 树，而且可以下载mib文件
     
-    oidview huawei mib tree：[fortinet-mib-OID-VIEW](http://www.oidview.com/mibs/12356/FORTINET-FORTIGATE-MIB.html)
+    oidview fortinet mib tree：[fortinet-mib-OID-VIEW](http://www.oidview.com/mibs/12356/FORTINET-FORTIGATE-MIB.html)
     
     oidview  mib download：[mib-download](http://www.oidview.net/tools/index.html)
 

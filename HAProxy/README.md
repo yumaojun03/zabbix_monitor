@@ -1,4 +1,6 @@
 # HAProxy Status Page 状态信息描述
+通过python操作haproxy 的socket， 执行 socket commands，解析出数据，
+并行带有自带发现功能(--discovery), 具体 请看脚本帮助 及-h选项.
 
 ## 开启状态页面方法
 

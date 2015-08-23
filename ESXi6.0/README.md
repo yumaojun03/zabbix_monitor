@@ -21,6 +21,7 @@
          3. {$PASSWORD} ==> vcentor_pass
     * 为该主机套上模板：  Template Virt VMware
 
+
 ***使用SNMP进行监控***
 
 2. 添加VMware ESX SNMP模板
@@ -46,6 +47,7 @@
 
       
   ***注意***： 我已经整理好了模板，就在当前目录下： zabbix_template_ESXi.xml
+
 
 
      
