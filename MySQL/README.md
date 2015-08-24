@@ -1,6 +1,8 @@
 # MySQL
-通过mysqladmin 的 status 和 extended-status 输出，
+* 老版本:通过mysqladmin 的 status 和 extended-status 输出，
 捕获mysql运行时状态信息  大概监控概要如下：
+* 新版本  通过python库 连接数据库 读取数据库的 schema信息，
+分析数据库运行状态，具有良好的扩展性 
 
 * **基本状态信息统计**
 * **增删查改 事物等语句执行次数统计**
