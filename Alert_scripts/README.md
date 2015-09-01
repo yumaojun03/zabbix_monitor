@@ -16,12 +16,14 @@
 
 2. 脚本说明
   * weixin_cli.py 微信公众平台客户端工具，用于查询微信中的一些信息，这里使用该工具查询 用户ID，因为调用接口查看比较耗时，这里为了节约时间，避免每次都查询用于ID
+    
     ```
     [root@mylab Alert_scripts]# python weixin_cli.py -u "xxx" -p "xxx" -a "list_user"
                      xxx ==>  xxx   
                      xxx ==>  xxx
     ```
   * weixin.py 这个是用于zabbix 告警的脚本，该脚本接收的3个参数 分别对应于zabbix中的，用于ID，主题，告警信息
+    
     ```
    [root@mylab Alert_scripts]# python  weixin.py 1957500040 'test' 'msg from zabbix web interface.'
     OK, send msg successful 
