@@ -13,6 +13,19 @@
 1. 调整脚本, 配置微信公众号 用户名和密码
   * 使用pip安装 微信公众平台SDK: pip install wechat-sdk
   * 修改Main函数的登陆用户为你的微信公众账号： w = MyWechat(username='your username', password='your pass')
+
+2. 脚本说明
+  * weixin_cli.py 微信公众平台客户端工具，用于查询微信中的一些信息，这里使用该工具查询 用户ID，因为调用接口查看比较耗时，这里为了节约时间，避免每次都查询用于ID
+    ```
+    [root@mylab Alert_scripts]# python weixin_cli.py -u "xxx" -p "xxx" -a "list_user"
+                     xxx ==>  xxx   
+                     xxx ==>  xxx
+    ```
+  * weixin.py 这个是用于zabbix 告警的脚本，该脚本接收的3个参数 分别对应于zabbix中的，用于ID，主题，告警信息
+    ```
+   [root@mylab Alert_scripts]# python  weixin.py 1957500040 'test' 'msg from zabbix web interface.'
+    OK, send msg successful 
+    ```
   
 **脚本编写时参考的文档**：
   * [微信公众平台 Python SDK](http://wechat-python-sdk.readthedocs.org/)
