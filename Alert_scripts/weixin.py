@@ -136,7 +136,7 @@ def Main():
     msg_body = argv[3]
 
     
-    w = MyWechat(username='719118794@qq.com', password='yusky0902') 
+    w = MyWechat(username='xxx', password='xxx') 
     w.login()
     w.send_msg(msg_send_to, msg_body)
 
