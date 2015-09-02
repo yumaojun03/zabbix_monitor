@@ -70,10 +70,10 @@ class MyWechat(object):
             self.__password_login()
         else:
             self.__token_login()
-        try:
-            self.__wechat.get_group_list()
-        except NeedLoginError, e:
-            self.__password_login()
+            try:
+                self.__wechat.get_group_list()
+            except NeedLoginError, e:
+                self.__password_login()
 
     def list_group(self):
         """
