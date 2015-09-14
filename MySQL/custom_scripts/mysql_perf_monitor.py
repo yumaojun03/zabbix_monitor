@@ -454,6 +454,27 @@ class Checks():
         for i in res:
             print i[0]
 
+    def slave_running(self):
+        """
+        检测slave 线程是否在运行 IO tread 和 SQL tread 都运行则ON
+        """
+        sql = "SELECT VARIABLE_VALUE \
+               FROM INFORMATION_SCHEMA.GLOBAL_STATUS \
+               WHERE VARIABLE_NAME LIKE 'SLAVE_RUNNING'"
+        self.cur.execute(sql)
+        res = self.cur.fetchall()
+        for i in res:
+            print i[0]
+
+    def slave_delayed(self):
+        """
+        Slave 落后 Master 时长，单位秒
+        """
+        sql = "SHOW SLAVE STATUS"
+        self.cur_dict.execute(sql)
+        res = self.cur_dict.fetchall()
+        print res[0]['Seconds_Behind_Master']
+
 
 class Main(Checks):
     """
@@ -513,6 +534,7 @@ class Main(Checks):
                                charset="utf8")
 
         self.cur = self.db.cursor()
+        self.cur_dict = self.db.cursor(cursorclass=MySQLdb.cursors.DictCursor)
 
     def _db_close(self):
         """
