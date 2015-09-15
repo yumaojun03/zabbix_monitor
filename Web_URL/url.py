@@ -14,6 +14,7 @@ Description :
 
 
 import re
+import json
 import pycurl
 import argparse
 from urllib import urlencode
@@ -147,6 +148,22 @@ def get_args():
                         required=False,
                         action="store",
                         help="the password login")
+    parser.add_argument("--perf",
+                        required=False,
+                        action="store",
+                        help="perfmance data",
+                        choices=["http_code",
+                                "namelookup_time",
+                                "connect_time",
+                                "pretransfer_time",
+                                "starttransfer_time",
+                                "redirect_time",
+                                "redirect_count",
+                                "redirect_url",
+                                "size_download",
+                                "header_size",
+                                "speed_download",
+                                "is_login"])
     args = parser.parse_args()
     return args
 
@@ -158,7 +175,12 @@ def main():
     url = URL(args.url)
     if args.method == "get":
         url.check_page()
-        print url.get_perf()
+        perf = url.get_perf()
+        if args.perf:
+            print perf[args.perf.upper()] 
+        else:
+           print json.dumps(perf, sort_keys=True, indent=4, separators=(',', ':'))
+
     elif args.method == "post":
         host = url.get_hostname()
         postdata = {"username": args.username,
@@ -166,8 +188,14 @@ def main():
         cookiefile = host + ".zoo"
         cookiejar = host + ".zoo"
         url.login(postdata, cookiefile, cookiejar)
-        print "check: ", url.check_login()
-        print url.get_perf()
+        perf = url.get_perf()
+        if args.perf:
+            if args.perf == "is_login":
+                print url.check_login()
+            else:
+                print perf[args.perf.upper()] 
+        else:
+           print json.dumps(perf, sort_keys=True, indent=4, separators=(',', ':'))
        
         
 if __name__ == "__main__":
